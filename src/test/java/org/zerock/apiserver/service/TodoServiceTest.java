@@ -4,7 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.jaxb.SpringDataJaxb;
 import org.zerock.apiserver.domain.Todo;
+import org.zerock.apiserver.dto.PagingRequestDto;
 import org.zerock.apiserver.dto.TodoDto;
 
 import java.time.LocalDate;
@@ -49,5 +51,13 @@ public class TodoServiceTest {
         todoService.modify(findTodo);
 
         log.info("findTodo = {}", findTodo);
+    }
+
+    // 페이징 테스트
+    @Test
+    public void getListTest(){
+        PagingRequestDto pagingRequestDto = PagingRequestDto.builder().page(5).build();
+
+        log.info("\t todoService.getList(pagingRequestDto) = {}", todoService.getList(pagingRequestDto));
     }
 }

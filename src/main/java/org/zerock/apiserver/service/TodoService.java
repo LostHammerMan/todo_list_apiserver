@@ -1,7 +1,10 @@
 package org.zerock.apiserver.service;
 
+import org.springframework.data.domain.jaxb.SpringDataJaxb;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.apiserver.domain.Todo;
+import org.zerock.apiserver.dto.PagingRequestDto;
+import org.zerock.apiserver.dto.PagingResponseDto;
 import org.zerock.apiserver.dto.TodoDto;
 
 @Transactional // 서비스 인터페이스, 서비스 클래스, 메서드 등에 사용 가능
@@ -20,6 +23,8 @@ public interface TodoService {
     // 삭제
     void remove(Long tno);
 
+    // 페이징
+    PagingResponseDto<TodoDto> getList(PagingRequestDto pagingRequestDto);
 
     // default 사용시 기본 기능 추가 가능
     default TodoDto entityToDto(Todo todo){

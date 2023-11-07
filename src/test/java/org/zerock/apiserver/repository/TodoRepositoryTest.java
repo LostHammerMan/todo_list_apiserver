@@ -93,10 +93,10 @@ public class TodoRepositoryTest {
     }
 
     // querydsl
-    @Test
-    public void search1Test(){
-
-        repository.search1();
-    }
+//    @Test
+//    public void search1Test(){
+//
+//        repository.search1();
+//    }
 
 }
